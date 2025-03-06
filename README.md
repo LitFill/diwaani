@@ -14,10 +14,18 @@ data Writer a = Writer { logs :: [String], val :: a }
 square :: Int -> Writer Int
 square x =
     let x2 = x * x
-     in Writer [show x ++ "squared is " ++ show x2] x2
+     in Writer [show x ++ " squared is " ++ show x2] x2
 
 main :: IO ()
 main = do
     print $
         pure 2 >>= square >>= square >>= square
+```
+
+this program prints:
+
+```
+2 squared is 4
+4 squared is 16
+16 squared is 256
 ```
