@@ -23,3 +23,10 @@ instance Monad Writer where
 instance Show a => Show (Writer a) where
     show = unlines . logs
     {-# INLINABLE show #-}
+
+--- >>> show (Writer ["empty"] ())
+-- "empty\n"
+
+-- >>> show (pure 35 >>= (\x -> let res = 34 + x in Writer ["Adding 34 to " ++ show x ++ " to get " ++ show res] res))
+-- "Adding 34 to 35 to get 69\n"
+
