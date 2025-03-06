@@ -5,7 +5,7 @@ an implementation of writer monad for logging some operation in 5 lines.
 ## the monad
 
 ```haskell
-data Writer a = Writer { logs :: [String], val a }
+data Writer a = Writer { logs :: [String], val :: a }
 ```
 
 ## examples
